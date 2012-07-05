@@ -7,7 +7,7 @@
 <br /><br />
 <% end %>
 
-<table>
+<table class="table table-bordered table-striped" id="notes">
   <tr>
     <th>Title</th>
     <th>User</th>
@@ -21,14 +21,26 @@
   <tr>
     <td><%= note.title %></td>
     <td><%= note.user %></td>
-    <td><%= note.content %></td>
-    <td><%= link_to 'Show', note %></td>
-    <td><%= link_to 'Edit', edit_note_path(note) %></td>
-    <td><%= link_to 'Destroy', note, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= note.content.html_safe %></td>
+    <td width='10'>
+      <%= link_to note, :class => "btn" do %>
+        <i class="icon-search"></i>
+      <%end%>
+    </td>
+    <td width='10'>
+      <%= link_to edit_note_path(note), :class => "btn" do %>
+        <i class="icon-edit"></i>
+        <%end%>
+    </td>
+    <td width='10'>
+      <%= link_to note, confirm: 'Are you sure?', method: :delete, :class => "btn" do %>
+        <i class="icon-trash"></i>
+        <%end%>
+    </td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Note', new_note_path %> | <%= link_to 'Back', notes_path %>
+<%= link_to 'New Note', new_note_path, :class => "btn btn-primary" %>  <%= link_to 'Back', notes_path, :class => "btn btn-primary" %>

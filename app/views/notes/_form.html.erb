@@ -1,29 +1,9 @@
-<%= form_for(@note) do |f| %>
-  <% if @note.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@note.errors.count, "error") %> prohibited this note from being saved:</h2>
-
-      <ul>
-      <% @note.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :user %><br />
-    <%= f.text_field :user %>
-  </div>
-  <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<%= simple_form_for(@note) do |f| %>
+    <%= f.input :title,:label => 'Titre' %>
+    <%= f.input :user,:label => 'Utilisateur' %>
+    <%= f.input :content,:label => 'Contenu',:placeholder =>'Veuillez encoder votre texte ici', :class => "btn" %>
+    <script type="text/javascript">
+        $('#note_content').wysihtml5();
+    </script>
+    <%= f.button :submit, :label => 'Envoyer', :class => "btn btn-primary" %>
 <% end %>

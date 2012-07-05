@@ -1,7 +1,7 @@
 <%= simple_form_for(@note) do |f| %>
     <%= f.input :title,:label => 'Titre' %>
     <%= f.input :user,:label => 'Utilisateur' %>
-    <%= f.input :content,:label => 'Contenu',:placeholder =>'Veuillez encoder votre texte ici', :class => "btn" %>
+    <%= f.input :content,:label => 'Contenu',:placeholder =>'Veuillez encoder votre texte ici' %>
     <script type="text/javascript">
         $('#note_content').wysihtml5();
     </script>

@@ -1,0 +1,20 @@
+<tr>
+  <td><%= note.title %></td>
+  <td><%= note.user %></td>
+  <td><%= note.content.html_safe %></td>
+  <td width='10'>
+    <%= link_to note, :class => "btn" do %>
+      <i class="icon-search"></i>
+    <%end%>
+  </td>
+  <td width='10'>
+    <%= link_to edit_note_path(note), :class => "btn" do %>
+      <i class="icon-edit"></i>
+      <%end%>
+  </td>
+  <td width='10'>
+    <%= link_to note, confirm: 'Etes vous sûr de vouloir supprimer cette note ?', method: :delete, :class => "btn" do %>
+      <i class="icon-trash"></i>
+      <%end%>
+  </td>
+</tr>

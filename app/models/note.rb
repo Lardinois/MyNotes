@@ -1,6 +1,9 @@
 class Note < ActiveRecord::Base
+
+	self.per_page = 3
+	
 	def self.searchInTitle(string)
-		where(:title => string)
+		where('lower(title) like ? or lower(content) like ?', "%#{string.downcase}%", "%#{string.downcase}%")
 	end
 
 	validates_presence_of :title, :user, :content

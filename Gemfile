@@ -25,6 +25,7 @@ gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 2.0.4.0' #Bootstrap tweeter
 gem 'simple_form'
 gem 'bootstrap-wysihtml5-rails'
+gem 'will_paginate'
 
 # Use unicorn as the web server
 # gem 'unicorn'

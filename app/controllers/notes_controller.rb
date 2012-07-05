@@ -4,11 +4,7 @@ class NotesController < ApplicationController
   def index
     #@notes = Note.all
     @notes = Note.paginate :page => params[:page]
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @notes }
-    end
+    request.xhr? ? render(@notes, :layout => false) : render(:index)
   end
 
   # GET /notes/1

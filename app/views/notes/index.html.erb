@@ -8,7 +8,7 @@
 <br /><br />
 <% end %>
 
-<table class="table table-striped table-condensed" id="notes">
+<table id='notes' class="table table-striped table-condensed">
   <tbody>
     <tr>
       <th>Titre</th>
@@ -19,13 +19,14 @@
       <th></th>
     </tr>
   <%= render @notes %>
-  <tbody>
+  </tbody>
 </table>
+
+<%= link_to "more", "javascript:", {:id => "more_notes", :class => "btn btn-primary"} %>
+<%#= will_paginate @notes %>
 
 <br />
 
-<%= will_paginate @notes %>
-
-<%= link_to 'New Note', new_note_path, :class => "btn btn-primary" %>  <%= link_to 'Back', notes_path, :class => "btn btn-primary" %>
+<%= link_to 'New Note', new_note_path, :class => "btn btn-primary" %>  <%= link_to 'Home', notes_path, :class => "btn btn-primary" %>
 
 

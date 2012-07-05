@@ -21,6 +21,14 @@ class NotesController < ApplicationController
     end
   end
 
+  # GET /notes/search
+  # GET /notes/search.json
+  def search
+    @notes = Note.searchInTitle(params[:keywords])
+    @keywords_value = params[:keywords]
+    render "index"
+  end
+
   # GET /notes/new
   # GET /notes/new.json
   def new

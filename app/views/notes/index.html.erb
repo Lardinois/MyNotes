@@ -1,7 +1,15 @@
 <h1>Listing notes</h1>
 
+<%= form_tag(search_notes_path, :method => "get") do %>
+  <%= label_tag(:keywords, "Recherche:") %>
+  <%= text_field_tag(:keywords,@keywords_value) %>
+  <%= submit_tag("Envoyer") %>
+<br /><br />
+<% end %>
+
 <table>
   <tr>
+    <th>Title</th>
     <th>User</th>
     <th>Content</th>
     <th></th>
@@ -11,6 +19,7 @@
 
 <% @notes.each do |note| %>
   <tr>
+    <td><%= note.title %></td>
     <td><%= note.user %></td>
     <td><%= note.content %></td>
     <td><%= link_to 'Show', note %></td>
@@ -22,4 +31,4 @@
 
 <br />
 
-<%= link_to 'New Note', new_note_path %>
+<%= link_to 'New Note', new_note_path %> | <%= link_to 'Back', notes_path %>

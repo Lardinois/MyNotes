@@ -1,5 +1,9 @@
 MyNotes::Application.routes.draw do
+  ActiveAdmin.routes(self)
+
+  devise_for :users
   root :to => "Notes#index"
+
   resources :notes do
     member do
       get "preview"
@@ -8,6 +12,7 @@ MyNotes::Application.routes.draw do
       get "search"
     end
   end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -65,3 +70,4 @@ MyNotes::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
 end
+

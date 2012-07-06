@@ -11,11 +11,33 @@
   <div class="navbar-inner">
     <div class="container">
       <a href="/" class="brand">Programme de notes</a>
+      <div class = "btn-group pull-right">
+        <ul class = "nav">
+          <% if user_signed_in? %>
+              <li><%= link_to 'Administration', admin_dashboard_path%></li>
+              <li><%= link_to current_user, edit_user_registration_path%></li>
+              <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete%></li>
+          <%else%>
+              <li><%= link_to 'Register', new_user_registration_path%></li>
+              <li><%= link_to 'Login', new_user_session_path%></li>
+          <%end%>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
 <div class="container">
-	<%= yield %>
+  <%if flash[:notice].present?%>
+      <div class = "alert alert-success">
+        <%= flash[:notice]%>
+      </div>
+  <%end%>
+  <%if flash[:alert].present?%>
+      <div class = "alert alert-error">
+        <%= flash[:alert]%>
+      </div>
+  <%end%>
+    <%= yield %>
 </div>
 </body>
 </html>
